@@ -15,20 +15,19 @@ sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登�
 
 ## Usage
     Usage: ashgraph.pl [-options]  DBServiceName User Password;
-    Output file name: 
-    	ashgraph_DBID_DBNAME_INSTANCENAME.png
     Options:
-    	-c core      : CPU core for Oracle10g 
-    	-d hour      : duration  
-    	-f filename  : output file name 
-    	-p directory : output directory 
-    	-i inst_id   : inst_id for RAC 
-    	-s skip      : X label skip
-    	-h pixel     : height         
-    	-w pixel     : width 
-    	-y value     : Y max value 
-    	-L           : No Legends 
-    	-T           : No Title 
-    	-?           : Help 
+    	-c core      : Oracle10gでは、CPUコア数を取得できないため、これを使います。 
+    	-d hour      : 時間の表示範囲 規定値：1時間
+    	-f filename  : 出力ファイル名 規定値：ashgraph_DBID_DBNAME_INSTANCENAME.png
+    	-p directory : 出力先ディレクトリ 規定値：./
+    	-i inst_id   : インスタンス番号 (RAC用) 
+    	-s skip      : Xラベルのスキップ間隔 規定値：15
+    	-h pixel     : イメージの高さ 規定値：135
+    	-w pixel     : イメージの幅 規定値：500
+    	-y value     : Y座標の最大値 規定値：自動 
+    	-L           : 凡例を表示しない
+    	-T           : タイトルを表示しない
+    	-?           : Help
+        
 ## Install
 インストール作業は必要ありませんが、SQLファイルを出力するため、実行ユーザが書き込みできるディレクトリで実行して下さい。
