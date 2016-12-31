@@ -12,19 +12,19 @@ Perl5にGD::Graph, File::Basename, Cwd, Getopt::Std, strictおよび、これら
 sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登録されている必要があります。
 
 ## Usage
-Usage: ashgraph.pl [-options]  DBServiceName User Password;
-Output file name: 
-	ashgraph_DBID_DBNAME_INSTANCENAME.png
-Options:
-	-c core      : CPU core for Oracle10g 
-	-d hour      : duration  
-	-f filename  : output file name 
-	-p directory : output directory 
-	-i inst_id   : inst_id for RAC 
-	-s skip      : X label skip
-	-h pixel     : height         
-	-w pixel     : width 
-	-y value     : Y max value 
-	-L           : No Legends 
-	-T           : No Title 
-	-?           : Help 
+    Usage: ashgraph.pl [-options]  DBServiceName User Password;
+    Output file name: 
+    	ashgraph_DBID_DBNAME_INSTANCENAME.png
+    Options:
+    	-c core      : CPU core for Oracle10g 
+    	-d hour      : duration  
+    	-f filename  : output file name 
+    	-p directory : output directory 
+    	-i inst_id   : inst_id for RAC 
+    	-s skip      : X label skip
+    	-h pixel     : height         
+    	-w pixel     : width 
+    	-y value     : Y max value 
+    	-L           : No Legends 
+    	-T           : No Title 
+    	-?           : Help 
