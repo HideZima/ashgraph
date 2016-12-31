@@ -2,6 +2,8 @@
 Active Sesssion Grapher for Oracle EE
 
 Oracle EE+DiagPackのgv$active_session_historyからOEMの平均アクティブセッションのようなグラフを作成するスクリプトです。
+たくさんのDBのOEMのグラフを並べて表示させたい為に作成しました。
+グラフはpng形式イメージで出力されます。
 Solaris11(x86)上のPerl5.12 + GD::Graph 1.54 + sqlplus(11.2)で動作確認済です。
 Perl5にGD::Graph, File::Basename, Cwd, Getopt::Std, strictおよび、これらの前提ライブラリがインストールされている事と、
 sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登録されている必要があります。
