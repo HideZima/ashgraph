@@ -1,2 +1,2 @@
 # ashgraph
-Oracle Active Sesssion Grapher
+Active Sesssion Grapher for Oracle EE
