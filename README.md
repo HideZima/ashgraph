@@ -4,8 +4,8 @@ Active Sesssion Grapher for Oracle EE
 Example:  
 ![sample](https://github.com/HideZima/ashgraph/blob/master/ashgraph_1234567890_TESTDB_TESTDB1.png)
 ## Description
-Oracle EE+DiagPackのgv$active_session_historyからOEMの平均アクティブセッションのようなグラフを作成するスクリプトです。
-たくさんのDBのOEMのグラフを並べて表示させたい為に作成しました。
+Oracle EE+DiagPackのgv$active_session_historyからOEMの平均アクティブセッションのようなグラフを作成するスクリプトです。　　
+たくさんのDBのグラフを並べて表示させたく、作成しました。　　
 グラフはpng形式イメージで出力されます。
 
 ## Requirement
