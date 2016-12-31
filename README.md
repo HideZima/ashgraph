@@ -1,6 +1,6 @@
 # ashgraph
 Active Sesssion Grapher for Oracle EE
-
+![sample]:https://github.com/HideZima/ashgraph/blob/master/ashgraph_1234567890_TESTDB_TESTDB1.png
 ## Description
 Oracle EE+DiagPackのgv$active_session_historyからOEMの平均アクティブセッションのようなグラフを作成するスクリプトです。
 たくさんのDBのOEMのグラフを並べて表示させたい為に作成しました。
@@ -28,3 +28,5 @@ sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登�
     	-L           : No Legends 
     	-T           : No Title 
     	-?           : Help 
+## Install
+インストール作業は必要ありませんが、SQLファイルを出力するため、実行ユーザが書き込みできるディレクトリで実行して下さい。
