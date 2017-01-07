@@ -16,8 +16,10 @@ sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登�
 ## Usage
     Usage: ashgraph.pl [-options]  DBServiceName User Password
     Options:
+	-b           : バックグラウンドプロセスを含める
     	-c core      : Oracle10gでは、CPUコア数を取得できないため、これを使います。 11g以降は自動取得される為、指定不要です。
-    	-d hour      : 時間の表示範囲 規定値：1時間
+    	-d hour      : 時間の表示範囲 規定値：1時間 
+                     : 
     	-f filename  : 出力ファイル名 規定値：ashgraph_DBID_DBNAME_INSTANCENAME.png
     	-p directory : 出力先ディレクトリ 規定値：./
     	-i inst_id   : インスタンス番号 (RAC用) 
@@ -30,5 +32,8 @@ sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登�
     	-?           : Help
         
 ## Install
-インストール作業は必要ありませんが、最初の一回はSQLファイルを出力するため、実行ユーザが書き込みできるディレクトリで実行して下さい。
-二回目以降の実行はその制限はありません。
+インストール作業は必要ありませんが、SQLファイルを出力するため、実行ユーザが書き込みできるディレクトリで実行して下さい。
+
+## hashgraph.plについて
+hashgraph.plはgv$active_session_historyではなく、dba_hist_active_sess_historyを元にした一時間平均の一週間分のグラフを生成します。こちらは期間(-d)は日単位で指定します。
+diffしていただければわかりますが、ほぼ同じものです。色々迷っているため、暫定的に分けました。

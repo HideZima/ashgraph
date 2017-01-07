@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 ###############################################################################
-# Active Session Grapher for Oracle EE v1.2
+# Hourly Active Session Grapher for Oracle EE v1.2
 #   Copyright 2016-2017 Mukojima Hideaki    twitter:@hideaki_zfs
 #
 #	v1.1:	1st release
@@ -27,8 +27,8 @@ my $sqlfile=${bindir}.'/'.$basename.'.sql';    #/home/user/ashgraph/ashgraph.sql
 #-b           : Include background process (default; only fg process)
 #-c core      : CPU core for Oracle10g #
 					my $_core=1;
-#-d hour      : duration #
-					my $_dur=1;
+#-d days      : duration #
+					my $_dur=7;
 #-f filename  : output file name#
 					my $_fname;
 #-p directory : output directory #
@@ -36,7 +36,7 @@ my $sqlfile=${bindir}.'/'.$basename.'.sql';    #/home/user/ashgraph/ashgraph.sql
 #-i inst_id   : inst_id for RAC #
 					my $_iid=1;
 #-s skip      : x_label_skip
-					my $_xskip=15;
+					my $_xskip=12;
 #-h pixel     : height #        
 					my $_hpx=135; 
 #-w pixel     : width #
@@ -95,9 +95,9 @@ my $old_hm=0;
 my $old_sample_id=0;
 my $sample_id_count=0;
 
-$_dur.='/24'; #ash
-my $iid_column='inst_id';
-my $view_name='gv\$active_session_history';
+#$_dur.='/24'; #ash
+my $iid_column='instance_number';
+my $view_name='dba_hist_active_sess_history';
 
 open (my $ora,'-|','sqlplus -S '.$ARGV[1].'/'.$ARGV[2].'@'.$ARGV[0].' @'.${sqlfile}.' '.${_iid}.' '.${_dur}.' '.${iid_column}.' '.${view_name}) or die $!;
 #open (my $ora, '<','testdata.txt');
@@ -113,13 +113,13 @@ while(<$ora>) {
 		$wcount=0 if $sestype=~/BACKGROUND/ && ! $opt{'b'}; # default: foreground only
 
 		my ($ymd,$hm)=split(/\s/,$date);
-#		$hm=~s/:.*$//; #HH:MM(ash) -> HH (hash)
+		$hm=~s/:.*$//; #HH:MM(ash) -> HH (hash)
 		if($old_sample_id != $sample_id && $old_sample_id != 0) {
 			$sample_id_count++;
 	 	}
 		if($old_hm ne $hm && $old_hm || /^END---/) { #push to @data
 			my ($yyyy,$mm,$dd)=split(/\//,$old_ymd); #hash
-			push(@{$data[0]},$old_hm); #x-label "HH:MI"(ash)
+			push(@{$data[0]},$dd.' '.$old_hm);  #x-label  "DD HH"(hash)
 			my $total; #total
 			for(my $i=0;$i<13;$i++) {
 				push(@{$data[$i+1]},$wclass_sum[$i]/$sample_id_count);
@@ -266,7 +266,7 @@ Output file name:
 Options:
         -b           : Include background process 
 	-c core      : CPU core for Oracle10g 
-	-d hour      : duration  
+	-d days      : duration  
 	-f filename  : output file name 
 	-p directory : output directory 
 	-i inst_id   : inst_id for RAC 
