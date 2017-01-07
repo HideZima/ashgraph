@@ -19,7 +19,7 @@ sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登�
     	-b           : バックグラウンドプロセスを含める
     	-c core      : Oracle10gでは、CPUコア数を取得できないため、これを使います。 11g以降は自動取得される為、指定不要です。
     	-d hour      : 時間の表示範囲 規定値：1時間 
-                     : 
+                     : (hashgraphの場合は、日 : 既定値: 7日)
     	-f filename  : 出力ファイル名 規定値：ashgraph_DBID_DBNAME_INSTANCENAME.png
     	-p directory : 出力先ディレクトリ 規定値：./
     	-i inst_id   : インスタンス番号 (RAC用) 
