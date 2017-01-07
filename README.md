@@ -16,7 +16,7 @@ sqlplusにパスが通っていることと、接続先DBがtnsnames.oraに登�
 ## Usage
     Usage: ashgraph.pl [-options]  DBServiceName User Password
     Options:
-	-b           : バックグラウンドプロセスを含める
+    	-b           : バックグラウンドプロセスを含める
     	-c core      : Oracle10gでは、CPUコア数を取得できないため、これを使います。 11g以降は自動取得される為、指定不要です。
     	-d hour      : 時間の表示範囲 規定値：1時間 
                      : 
